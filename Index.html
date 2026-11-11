@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Retro 98</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts pixelated retro fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=MS+Sans+Serif&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+            user-select: none;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
+        }
+
+        /* Pixel Title font */
+        .pixel-title {
+            font-family: 'VT323', monospace;
+            text-shadow: 4px 4px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+        /* Classic Win98 Bevel Effects */
+        .win98-box {
+            background: #c0c0c0;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .win98-button {
+            background: #c0c0c0;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            font-size: 13px;
+            font-weight: bold;
+            color: black;
+            outline: none;
+        }
+
+        .win98-button:active, .win98-button.active {
+            border-top: 2px solid #404040;
+            border-left: 2px solid #404040;
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+            padding-top: 1px;
+            padding-left: 1px;
+        }
+
+        .win98-inset {
+            background: #ffffff;
+            border-top: 2px solid #808080;
+            border-left: 2px solid #808080;
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        /* Desktop icon hover */
+        .retro-icon-btn {
+            transition: transform 0.15s ease-in-out;
+        }
+        .retro-icon-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+        }
+        .retro-icon-btn:hover .icon-label {
+            background-color: #000080;
+            color: #ffffff;
+            outline: 1px dotted #ffffff;
+        }
+
+        /* CRT Overlay Effect for Video Page */
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #dfdfdf;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+        }
+
+        /* Page view transitions */
+        .page-view {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .page-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.98);
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="relative w-screen h-screen m-0 p-0 overflow-hidden flex flex-col justify-between">
+
+    <!-- ================================================================= -->
+    <!-- MAIN HOME PAGE (EXACT SURREALIST MOUNTAIN & HOUSE IMAGE BACKGROUND) -->
+    <!-- ================================================================= -->
+    <section id="page-home" class="page-view absolute inset-0 z-10 flex flex-col justify-between p-4 md:p-8 pb-14">
+        
+        <!-- EXACT SURREALIST LANDSCAPE BACKGROUND IMAGE -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Surrealist Mountain House Background" 
+                 class="w-full h-full object-cover object-center select-none" />
+            <div class="absolute inset-0 bg-[#0f52ba]/10 mix-blend-overlay"></div>
+        </div>
+
+        <!-- MAIN TITLE: PORTFÓLIO (SEM TEXTO ADICIONAL) -->
+        <div class="relative z-10 mt-8 md:mt-12 text-center">
+            <h1 class="pixel-title text-6xl md:text-9xl font-black text-white tracking-widest uppercase drop-shadow-[0_6px_10px_rgba(0,0,0,0.9)]">
+                PORTFÓLIO
+            </h1>
+        </div>
+
+        <!-- 3 RETRO APPS/ICONS -->
+        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16 max-w-4xl w-full mx-auto my-auto px-4">
+            
+            <!-- Icon 1: Edição de Vídeo -->
+            <div onclick="navigateTo('video')" class="retro-icon-btn flex flex-col items-center cursor-pointer select-none">
+                <div class="w-20 h-20 md:w-24 md:h-24 p-2 flex items-center justify-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.7)]">
+                    <svg viewBox="0 0 48 48" class="w-full h-full">
+                        <rect x="6" y="14" width="24" height="20" fill="#a0a0a0" stroke="#000" stroke-width="2"/>
+                        <rect x="8" y="16" width="20" height="16" fill="#c0c0c0"/>
+                        <circle cx="18" cy="24" r="5" fill="#333" stroke="#000" stroke-width="1.5"/>
+                        <circle cx="18" cy="24" r="2" fill="#00d2ff"/>
+                        <circle cx="12" cy="11" r="5" fill="#808080" stroke="#000" stroke-width="1.5"/>
+                        <circle cx="24" cy="11" r="5" fill="#808080" stroke="#000" stroke-width="1.5"/>
+                        <circle cx="12" cy="11" r="2" fill="#fff"/>
+                        <circle cx="24" cy="11" r="2" fill="#fff"/>
+                        <polygon points="30,18 42,12 42,36 30,30" fill="#606060" stroke="#000" stroke-width="2"/>
+                        <polygon points="42,12 45,10 45,38 42,36" fill="#303030" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <span class="icon-label mt-2 text-white font-bold text-xs md:text-sm bg-[#000080]/90 px-3 py-1 border border-white/50 shadow text-center tracking-wide">
+                    Edição de Vídeo
+                </span>
+            </div>
+
+            <!-- Icon 2: Edição de Imagem -->
+            <div onclick="navigateTo('image')" class="retro-icon-btn flex flex-col items-center cursor-pointer select-none">
+                <div class="w-20 h-20 md:w-24 md:h-24 p-2 flex items-center justify-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.7)]">
+                    <svg viewBox="0 0 48 48" class="w-full h-full">
+                        <path d="M 24 6 C 12 6 4 14 4 25 C 4 34 12 42 22 42 C 26 42 28 38 28 35 C 28 33 27 32 27 30 C 27 28 29 27 31 27 L 36 27 C 41 27 44 23 44 18 C 44 10 35 6 24 6 Z" fill="#e6a15c" stroke="#000" stroke-width="2"/>
+                        <circle cx="14" cy="18" r="3.5" fill="#e53935" stroke="#000" stroke-width="1"/>
+                        <circle cx="24" cy="13" r="3.5" fill="#fdd835" stroke="#000" stroke-width="1"/>
+                        <circle cx="34" cy="17" r="3.5" fill="#1e88e5" stroke="#000" stroke-width="1"/>
+                        <circle cx="13" cy="28" r="3.5" fill="#43a047" stroke="#000" stroke-width="1"/>
+                        <path d="M 32 40 L 42 26 L 45 29 L 35 43 Z" fill="#8d6e63" stroke="#000" stroke-width="1.5"/>
+                        <path d="M 30 42 L 33 38 L 36 41 L 32 45 Z" fill="#333"/>
+                    </svg>
+                </div>
+                <span class="icon-label mt-2 text-white font-bold text-xs md:text-sm bg-[#000080]/90 px-3 py-1 border border-white/50 shadow text-center tracking-wide">
+                    Edição de Imagem
+                </span>
+            </div>
+
+            <!-- Icon 3: Design / Projetos -->
+            <div onclick="navigateTo('design')" class="retro-icon-btn flex flex-col items-center cursor-pointer select-none">
+                <div class="w-20 h-20 md:w-24 md:h-24 p-2 flex items-center justify-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.7)]">
+                    <svg viewBox="0 0 48 48" class="w-full h-full">
+                        <rect x="8" y="6" width="32" height="36" fill="#1565c0" stroke="#000" stroke-width="2"/>
+                        <line x1="8" y1="18" x2="40" y2="18" stroke="#64b5f6" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="8" y1="30" x2="40" y2="30" stroke="#64b5f6" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="24" y1="6" x2="24" y2="42" stroke="#64b5f6" stroke-width="1" stroke-dasharray="2,2"/>
+                        <polygon points="16,14 32,14 36,34 12,34" fill="none" stroke="#fff" stroke-width="2"/>
+                        <rect x="14" y="12" width="4" height="4" fill="#ffeb3b" stroke="#000"/>
+                        <rect x="30" y="12" width="4" height="4" fill="#ffeb3b" stroke="#000"/>
+                        <rect x="34" y="32" width="4" height="4" fill="#ffeb3b" stroke="#000"/>
+                        <rect x="10" y="32" width="4" height="4" fill="#ffeb3b" stroke="#000"/>
+                        <polygon points="28,20 42,6 45,9 31,23" fill="#ffb300" stroke="#000" stroke-width="1"/>
+                    </svg>
+                </div>
+                <span class="icon-label mt-2 text-white font-bold text-xs md:text-sm bg-[#000080]/90 px-3 py-1 border border-white/50 shadow text-center tracking-wide">
+                    Design & Projetos
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- CATEGORY PAGE 1: EDIÇÃO DE VÍDEO -->
+    <!-- ================================================================= -->
+    <section id="page-video" class="page-view page-hidden absolute inset-0 z-20 flex flex-col bg-[#0d0f12] text-white crt-overlay pb-12">
+        <!-- Content Container -->
+        <main class="flex-1 overflow-y-auto p-4 md:p-8 z-20">
+            <div class="max-w-6xl mx-auto space-y-6">
+                
+                <div class="bg-[#161920] border border-[#2a2f3d] p-4 rounded-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <span>🎬</span> Estúdio de Edição de Vídeo
+                        </h3>
+                        <p class="text-xs text-gray-400 mt-1">Cortes, edições dinâmicas e showreels.</p>
+                    </div>
+                    <button onclick="navigateTo('home')" class="win98-button px-4 py-1.5 flex items-center space-x-2 text-xs md:text-sm font-bold cursor-pointer hover:bg-gray-300">
+                        <span>⬅️ VOLTAR</span>
+                    </button>
+                </div>
+
+                <!-- Video Grid Container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="video-grid"></div>
+
+            </div>
+        </main>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- CATEGORY PAGE 2: EDIÇÃO DE IMAGEM -->
+    <!-- ================================================================= -->
+    <section id="page-image" class="page-view page-hidden absolute inset-0 z-20 flex flex-col bg-[#262626] text-white pb-12">
+        <!-- Content Container -->
+        <main class="flex-1 overflow-y-auto p-4 md:p-8">
+            <div class="max-w-6xl mx-auto space-y-6">
+                
+                <div class="bg-[#1e1e1e] border border-[#3d3d3d] p-4 rounded-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <span>🎨</span> Galeria de Edição de Imagem
+                        </h3>
+                        <p class="text-xs text-gray-400 mt-1">Tratamento fotográfico, cor e manipulacão visual.</p>
+                    </div>
+                    <button onclick="navigateTo('home')" class="win98-button px-4 py-1.5 flex items-center space-x-2 text-xs md:text-sm font-bold cursor-pointer">
+                        <span>⬅️ VOLTAR</span>
+                    </button>
+                </div>
+
+                <!-- Images Grid Container -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="image-grid"></div>
+
+            </div>
+        </main>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- CATEGORY PAGE 3: DESIGN & PROJETOS -->
+    <!-- ================================================================= -->
+    <section id="page-design" class="page-view page-hidden absolute inset-0 z-20 flex flex-col bg-[#0a192f] text-white pb-12">
+        <!-- Content Container -->
+        <main class="flex-1 overflow-y-auto p-4 md:p-8">
+            <div class="max-w-6xl mx-auto space-y-6">
+                
+                <div class="bg-[#112240] border border-[#233554] p-4 rounded-sm flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <span>📄</span> Design Gráfico & Identidade Visual
+                        </h3>
+                        <p class="text-xs text-blue-200 mt-1">Branding, conceitos visuais e layouts.</p>
+                    </div>
+                    <button onclick="navigateTo('home')" class="win98-button px-4 py-1.5 flex items-center space-x-2 text-xs md:text-sm font-bold cursor-pointer">
+                        <span>⬅️ VOLTAR</span>
+                    </button>
+                </div>
+
+                <!-- Design Grid Container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="design-grid"></div>
+
+            </div>
+        </main>
+    </section>
+
+    <!-- FIXED RETRO TASKBAR AT BOTTOM (BARRA INFERIOR COM MENINO PIXELADO) -->
+    <footer class="fixed bottom-0 left-0 right-0 z-50 h-10 bg-[#c0c0c0] border-t-2 border-white flex items-center justify-between px-2 select-none shadow-lg">
+        
+        <!-- Start Button with Pixel Art Boy Icon -->
+        <button onclick="navigateTo('home')" class="win98-button px-3 py-1 flex items-center space-x-2 text-xs font-bold cursor-pointer hover:bg-[#d0d0d0]">
+            <!-- Pixel Art Boy Icon -->
+            <svg class="w-5 h-5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hair (Brown) -->
+                <rect x="4" y="1" width="8" height="2" fill="#5A3825"/>
+                <rect x="3" y="2" width="10" height="2" fill="#5A3825"/>
+                <!-- Skin (Face) -->
+                <rect x="4" y="4" width="8" height="5" fill="#FFCC99"/>
+                <!-- Eyes (Pixel Black) -->
+                <rect x="5" y="5" width="2" height="2" fill="#111111"/>
+                <rect x="9" y="5" width="2" height="2" fill="#111111"/>
+                <!-- Smile -->
+                <rect x="6" y="8" width="4" height="1" fill="#D9534F"/>
+                <!-- Body / Red Shirt -->
+                <rect x="3" y="9" width="10" height="5" fill="#E53935"/>
+                <rect x="2" y="10" width="12" height="3" fill="#D32F2F"/>
+                <!-- Collar detail -->
+                <rect x="7" y="9" width="2" height="2" fill="#FFFFFF"/>
+                <!-- Border Outline pixel effect -->
+                <rect x="4" y="0" width="8" height="1" fill="#222222"/>
+                <rect x="3" y="1" width="1" height="1" fill="#222222"/>
+                <rect x="12" y="1" width="1" height="1" fill="#222222"/>
+            </svg>
+            <span class="font-bold">Iniciar</span>
+        </button>
+
+        <!-- Active Page Status Display -->
+        <div id="taskbar-status" class="win98-inset px-4 py-0.5 text-xs font-mono text-black font-bold">
+            Página: Tela Inicial
+        </div>
+
+        <!-- Clock -->
+        <div class="win98-inset px-3 py-1 bg-[#c0c0c0] text-xs font-mono text-black">
+            <span id="live-clock">12:00</span>
+        </div>
+    </footer>
+
+    <!-- DATA & NAVIGATION SCRIPT -->
+    <script>
+        const myData = {
+            video: [
+                {
+                    title: "Edição de Vídeo Comercial / Promo",
+                    tag: "Corte & Color Grading",
+                    desc: "Projeto com ritmo dinâmico, efeitos visuais e sincronização musical.",
+                    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    thumb: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800"
+                },
+                {
+                    title: "Vídeo para Redes Sociais / Reels",
+                    tag: "Formatos Verticais / Motion",
+                    desc: "Edição otimizada com legendas animadas e alta retenção.",
+                    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    thumb: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800"
+                }
+            ],
+            image: [
+                {
+                    title: "Retoque e Tratamento Fotográfico",
+                    tag: "Photoshop / Tratamento",
+                    desc: "Ajuste de tons, correção de cor e retoque de pele.",
+                    url: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800"
+                },
+                {
+                    title: "Composição Surrealista",
+                    tag: "Arte Digital",
+                    desc: "Fusão de múltiplos elementos fotográficos criando uma atmosfera onírica.",
+                    url: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800"
+                },
+                {
+                    title: "Edição de Cores & Moodboard",
+                    tag: "Color Grading",
+                    desc: "Harmonização de paleta e contraste em alta resolução.",
+                    url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800"
+                }
+            ],
+            design: [
+                {
+                    title: "Identidade Visual & Branding",
+                    tag: "Brand Design",
+                    desc: "Criação de logotipo, tipografia e diretrizes de marca.",
+                    url: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=800"
+                },
+                {
+                    title: "Layout e Peças de Comunicação",
+                    tag: "Graphic Design",
+                    desc: "Desenvolvimento de peças publicitárias e banners digitais.",
+                    url: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800"
+                }
+            ]
+        };
+
+        function initPageData() {
+            // Render Videos
+            const videoGrid = document.getElementById('video-grid');
+            videoGrid.innerHTML = myData.video.map(v => `
+                <div class="bg-[#1c202b] border border-[#2d3345] rounded overflow-hidden shadow-lg flex flex-col">
+                    <div class="relative w-full h-56 bg-black">
+                        <iframe src="${v.embedUrl}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-mono bg-cyan-950 text-cyan-300 px-2 py-0.5 border border-cyan-800">${v.tag}</span>
+                            <h4 class="text-base font-bold text-white mt-2">${v.title}</h4>
+                            <p class="text-xs text-gray-400 mt-1">${v.desc}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Images
+            const imageGrid = document.getElementById('image-grid');
+            imageGrid.innerHTML = myData.image.map(img => `
+                <div class="bg-[#1a1a1a] border border-[#383838] rounded overflow-hidden shadow-lg flex flex-col">
+                    <div class="w-full h-60 bg-black overflow-hidden">
+                        <img src="${img.url}" alt="${img.title}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] font-mono bg-amber-950 text-amber-300 px-2 py-0.5 border border-amber-800">${img.tag}</span>
+                        <h4 class="text-base font-bold text-white mt-2">${img.title}</h4>
+                        <p class="text-xs text-gray-400 mt-1">${img.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Design
+            const designGrid = document.getElementById('design-grid');
+            designGrid.innerHTML = myData.design.map(d => `
+                <div class="bg-[#112240] border border-[#1d3557] rounded overflow-hidden shadow-lg flex flex-col">
+                    <div class="w-full h-64 bg-black overflow-hidden">
+                        <img src="${d.url}" alt="${d.title}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] font-mono bg-teal-950 text-teal-300 px-2 py-0.5 border border-teal-800">${d.tag}</span>
+                        <h4 class="text-base font-bold text-white mt-2">${d.title}</h4>
+                        <p class="text-xs text-blue-200 mt-1">${d.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function navigateTo(targetPage) {
+            const pages = ['home', 'video', 'image', 'design'];
+            
+            pages.forEach(p => {
+                const el = document.getElementById(`page-${p}`);
+                if (p === targetPage) {
+                    el.classList.remove('page-hidden');
+                } else {
+                    el.classList.add('page-hidden');
+                }
+            });
+
+            const statusNames = {
+                home: "Tela Inicial",
+                video: "Página: Edição de Vídeo",
+                image: "Página: Edição de Imagem",
+                design: "Página: Design & Projetos"
+            };
+            document.getElementById('taskbar-status').innerText = statusNames[targetPage] || "Navegação";
+        }
+
+        setInterval(() => {
+            const d = new Date();
+            document.getElementById('live-clock').innerText = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }, 1000);
+
+        window.onload = initPageData;
+    </script>
+</body>
+</html>
